@@ -2,20 +2,24 @@
 const startButton = document.getElementById('startButton');
 const pageIntro = document.getElementById('pageIntro');
 const pageStory = document.getElementById('pageStory');
+const pageLetters = document.getElementById('pageLetters');
+const pageMemories = document.getElementById('pageMemories');
+const pageQuestion = document.getElementById('pageQuestion');
+const pageImageReveal = document.getElementById('pageImageReveal');
 const pageCelebrate = document.getElementById('pageCelebrate');
 const bgMusic = document.getElementById('bgMusic');
 const typingText = document.getElementById('typingText');
-const yesButton = document.getElementById('yesButton');
-const noButton = document.getElementById('noButton');
+const continueButton = document.getElementById('continueButton');
+const nextAfterLettersButton = document.getElementById('nextAfterLettersButton');
+const nextAfterMemoriesButton = document.getElementById('nextAfterMemoriesButton');
+const hongButton = document.getElementById('hongButton');
+const daButton = document.getElementById('daButton');
+const nextToFinalButton = document.getElementById('nextToFinalButton');
 const canvas = document.getElementById('celebrateCanvas');
 const ctx = canvas.getContext('2d');
 
 // Nội dung tỏ tình sẽ được gõ chữ từng chữ một
 const loveMessage = `Di à....\n\nTừ lúc gặp em, mỗi ngày đều trở nên vui hơn.\n\nAnh nghĩ là anh không chờ được nữa rồi.\n\nHôm nay a muốn tỏ tình với em.\n\Anh muốn dành tình cảm thật lòng của anh dành cho em. \n\nEm có đồng ý cùng anh viết tiếp câu chuyện này không?`;
-
-// trạng thái tránh nút suy nghĩ
-let avoidClicks = 0;
-const maxAvoids = 5;
 
 // Khởi tạo canvas fireworks
 let fireworks = [];
@@ -110,11 +114,39 @@ function renderFireworks() {
   animationFrame = requestAnimationFrame(renderFireworks);
 }
 
-function startCelebration() {
+function goToLettersPage() {
   pageStory.classList.remove('active');
-  pageCelebrate.classList.add('active');
+  pageLetters.classList.add('active');
   document.body.style.background = 'radial-gradient(circle at top, #ffe7f8, transparent 20%), linear-gradient(180deg, #fff2f9 0%, #ffdde4 100%)';
   document.body.style.transition = 'background 1s ease';
+  for (let i = 0; i < 12; i += 1) createFirework();
+  cancelAnimationFrame(animationFrame);
+  renderFireworks();
+  setTimeout(() => {
+    createFirework();
+  }, 300);
+  showLettersGallery();
+}
+
+function goToMemoriesPage() {
+  pageLetters.classList.remove('active');
+  pageMemories.classList.add('active');
+  showMemoryGallery();
+}
+
+function goToQuestionPage() {
+  pageMemories.classList.remove('active');
+  pageQuestion.classList.add('active');
+}
+
+function goToImageReveal() {
+  pageQuestion.classList.remove('active');
+  pageImageReveal.classList.add('active');
+}
+
+function startCelebration() {
+  pageImageReveal.classList.remove('active');
+  pageCelebrate.classList.add('active');
   for (let i = 0; i < 18; i += 1) createFirework();
   cancelAnimationFrame(animationFrame);
   renderFireworks();
@@ -124,8 +156,29 @@ function startCelebration() {
   setTimeout(() => {
     createFirework();
   }, 650);
-  showMemoryGallery();
 }
+
+function moveHongButton() {
+  const offsetX = randomBetween(-100, 100);
+  const offsetY = randomBetween(-50, 50);
+  hongButton.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(1.05)`;
+  hongButton.style.transition = 'transform 0.3s ease';
+}
+
+const letters = [
+  {
+    title: 'Lá thư 1',
+    message: 'Em yêu,\n\nTừ lúc em xuất hiện trong cuộc đời anh, mỗi sáng thức dậy anh đều có lý do để cười.\n\nCảm ơn em đã tồn tại. Anh yêu em ❤️'
+  },
+  {
+    title: 'Lá thư 2',
+    message: 'Cô em xinh đẹp,\n\nAnh muốn nói là những khoảnh khắc bên em là những khoảnh khắc quý giá nhất của anh.\n\nAnh rất vui khi được yêu em!'
+  },
+  {
+    title: 'Lá thư 3',
+    message: 'Người yêu của anh,\n\nAnh hứa sẽ luôn bên cạnh em, yêu thương em và chăm sóc em cả đời.\n\nEm là thứ tuyệt vời nhất trong đời anh!'
+  }
+];
 
 const memories = [
   { src: 'memory1.jpg', caption: 'Lần đầu mình gặp nhau, hơi ngại nhưng mà cũng thích' },
@@ -141,6 +194,46 @@ const memories = [
   { src: 'memory11.jpg', caption: 'Hai đứa mình núp mưa nè' },
   { src: 'memory12.jpg', caption: 'Tự nhiên muốn giữ mãi' }
 ];
+
+function showLettersGallery() {
+  const gallery = document.getElementById('lettersGallery');
+  if (!gallery) return;
+  gallery.innerHTML = '';
+  
+  letters.forEach((letter, index) => {
+    const card = document.createElement('div');
+    card.className = 'letter-card';
+    card.style.animationDelay = `${index * 0.15}s`;
+    
+    // Front of letter (envelope)
+    const front = document.createElement('div');
+    front.className = 'letter-front';
+    front.innerHTML = '💌<span>' + letter.title + '</span>';
+    
+    // Back of letter (message)
+    const back = document.createElement('div');
+    back.className = 'letter-back';
+    const message = document.createElement('div');
+    message.className = 'letter-message';
+    message.textContent = letter.message;
+    back.appendChild(message);
+    
+    card.appendChild(front);
+    card.appendChild(back);
+    
+    card.addEventListener('click', () => {
+      card.classList.toggle('opened');
+    });
+    
+    gallery.appendChild(card);
+  });
+  
+  // Add animation to letters section
+  const lettersSection = document.querySelector('.letters-section');
+  if (lettersSection) {
+    lettersSection.style.animation = 'fadeInUp 0.8s ease 0.3s forwards';
+  }
+}
 
 function showMemoryGallery() {
   const gallery = document.getElementById('memoryGallery');
@@ -165,18 +258,6 @@ function showMemoryGallery() {
   });
 }
 
-function moveNoButton() {
-  if (avoidClicks >= maxAvoids) {
-    noButton.style.transform = 'translate(0, 0)';
-    return;
-  }
-
-  const offsetX = randomBetween(-85, 85);
-  const offsetY = randomBetween(-40, 40);
-  noButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-  avoidClicks += 1;
-}
-
 startButton.addEventListener('click', () => {
   playBackgroundMusic();
   fadeToPage(pageIntro, pageStory);
@@ -185,12 +266,28 @@ startButton.addEventListener('click', () => {
   }, 350);
 });
 
-yesButton.addEventListener('click', () => {
-  startCelebration();
+continueButton.addEventListener('click', () => {
+  goToLettersPage();
 });
 
-noButton.addEventListener('mouseenter', moveNoButton);
-noButton.addEventListener('click', moveNoButton);
+nextAfterLettersButton.addEventListener('click', () => {
+  goToMemoriesPage();
+});
+
+nextAfterMemoriesButton.addEventListener('click', () => {
+  goToQuestionPage();
+});
+
+hongButton.addEventListener('mouseenter', moveHongButton);
+hongButton.addEventListener('click', moveHongButton);
+
+daButton.addEventListener('click', () => {
+  goToImageReveal();
+});
+
+nextToFinalButton.addEventListener('click', () => {
+  startCelebration();
+});
 
 window.addEventListener('resize', setCanvasSize);
 window.addEventListener('load', () => {
