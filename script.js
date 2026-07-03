@@ -168,15 +168,15 @@ function moveHongButton() {
 const letters = [
   {
     title: 'Lá thư 1',
-    message: 'Em yêu,\n\nTừ lúc em xuất hiện trong cuộc đời anh, mỗi sáng thức dậy anh đều có lý do để cười.\n\nCảm ơn em đã tồn tại. Anh yêu em ❤️'
+    message: 'Em yêu,\n\nTừ lúc em xuất hiện trong cuộc đời anh, mỗi sáng thức dậy anh đều có lý do để cười. ❤️'
   },
   {
     title: 'Lá thư 2',
-    message: 'Cô em xinh đẹp,\n\nAnh muốn nói là những khoảnh khắc bên em là những khoảnh khắc quý giá nhất của anh.\n\nAnh rất vui khi được yêu em!'
+    message: 'Cô em xinh đẹp,\n\nAnh muốn nói là những khoảnh khắc bên em là những khoảnh khắc quý giá nhất của anh.\n\nAnh cứ gặp em là anh cười!'
   },
   {
     title: 'Lá thư 3',
-    message: 'Người yêu của anh,\n\nAnh hứa sẽ luôn bên cạnh em, yêu thương em và chăm sóc em cả đời.\n\nEm là thứ tuyệt vời nhất trong đời anh!'
+    message: 'Di của tui,\n\nNgày nào a cũng cười vì em, từ lúc gặp em a cứ tẻn tẻn, chắc do yêu đúng người.\n\nGặp phải cục nợ anh gất dui!'
   }
 ];
 
