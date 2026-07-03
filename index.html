@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tỏ Tình Với Di</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page page--intro active" id="pageIntro">
+    <div class="layer layer--bg"></div>
+    <div class="layer layer--glow"></div>
+    <div class="decor hearts"></div>
+    <div class="decor petals"></div>
+    <div class="decor sparks"></div>
+    <div class="intro-card glass-card">
+      <div class="intro-title">Xin chào Di ❤️</div>
+      <p class="intro-text">Anh có một điều muốn nói...</p>
+      <button class="btn btn-primary" id="startButton">Bắt đầu</button>
+    </div>
+  </div>
+
+  <div class="page page--story" id="pageStory">
+    <div class="layer layer--bg layer--bg2"></div>
+    <div class="layer layer--glow"></div>
+    <div class="layer layer--blur"></div>
+    <div class="story-container glass-card">
+      <div class="photo-frame">
+        <div class="polaroid">
+          <img src="photo.jpg" alt="Hình của Di" />
+          <div class="polaroid-caption">Di xinh đẹp</div>
+        </div>
+      </div>
+      <div class="story-content">
+        <div class="typing-text" id="typingText"></div>
+        <div class="story-buttons">
+          <button class="btn btn-success" id="yesButton">Đồng ý ❤️</button>
+          <button class="btn btn-secondary" id="noButton">Để em suy nghĩ 😊</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page page--celebrate" id="pageCelebrate">
+    <div class="layer layer--bg layer--bg3"></div>
+    <div class="layer layer--glow"></div>
+    <canvas id="celebrateCanvas"></canvas>
+    <div class="celebrate-content glass-card">
+      <div class="celebrate-heart">❤️</div>
+      <h1>Yayyyyy ❤️</h1>
+      <p>Cảm ơn em.<br />Anh sẽ luôn trân trọng em.</p>
+    </div>
+  </div>
+
+  <!-- Tải bài hát từ https://www.nhaccuatui.com/song/gmwkRXexcnUo về dưới tên music.mp3 và đặt cùng thư mục -->
+  <audio id="bgMusic" src="music.mp3" preload="metadata"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
