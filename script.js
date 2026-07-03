@@ -168,25 +168,25 @@ function moveHongButton() {
 const letters = [
   {
     title: 'Lá thư 1',
-    message: 'Em yêu,\n\nTừ lúc em xuất hiện trong cuộc đời anh, mỗi sáng thức dậy anh đều có lý do để cười. ❤️'
+    message: 'Từ lúc em xuất hiện trong cuộc đời anh, mỗi sáng thức dậy anh đều có lý do để cười. ❤️'
   },
   {
     title: 'Lá thư 2',
-    message: 'Cô em xinh đẹp,\n\nAnh muốn nói là những khoảnh khắc bên em là những khoảnh khắc quý giá nhất của anh.\n\nAnh cứ gặp em là anh cười!'
+    message: 'Anh muốn nói là những khoảnh khắc bên em là những khoảnh khắc quý giá nhất của anh.\n\nAnh cứ gặp em là anh cười!'
   },
   {
     title: 'Lá thư 3',
-    message: 'Di của tui,\n\nNgày nào a cũng cười vì em, từ lúc gặp em a cứ tẻn tẻn, chắc do yêu đúng người.\n\nGặp phải cục nợ anh gất dui!'
+    message: 'Ngày nào a cũng cười vì em, từ lúc gặp em a cứ tẻn tẻn, chắc do yêu đúng người.\n\nGặp phải cục nợ anh gất dui!'
   }
 ];
 
 const memories = [
   { src: 'memory1.jpg', caption: 'Lần đầu mình gặp nhau, hơi ngại nhưng mà cũng thích' },
-  { src: 'memory2.jpg', caption: 'Kỷ niệm buổi hẹn đầu tiên' },
+  { src: 'memory2.jpg', caption: 'Đi chụp ảnh cho ẻm ngày đầu' },
   { src: 'memory3.jpg', caption: 'Cùng nhau cười thật nhiều' },
-  { src: 'memory4.jpg', caption: 'Đêm đèn lấp lánh bên nhau' },
+  { src: 'memory4.jpg', caption: 'Nhìn nhau ngại ngùng đồ nè' },
   { src: 'memory5.jpg', caption: 'Chụp hình kỉ yếu chung nè' },
-  { src: 'memory6.jpg', caption: 'Khoảnh khắc tay trong tay' },
+  { src: 'memory6.jpg', caption: 'Làm trợ lý cho ẻm nè' },
   { src: 'memory7.jpg', caption: 'Lâu rồi mình vẫn nhớ' },
   { src: 'memory8.jpg', caption: 'Ảnh mình trêu nhau dễ thương' },
   { src: 'memory9.jpg', caption: 'Ẻm dựa vai anh nè' },
