@@ -11,7 +11,7 @@ const canvas = document.getElementById('celebrateCanvas');
 const ctx = canvas.getContext('2d');
 
 // Nội dung tỏ tình sẽ được gõ chữ từng chữ một
-const loveMessage = `Di à....\n\nTừ lúc gặp em, mỗi ngày đều trở nên vui hơn.\n\nAnh không hứa sẽ hoàn hảo.\n\nNhưng anh hứa sẽ luôn chân thành.\n\nEm có đồng ý cùng anh viết tiếp câu chuyện này không?`;
+const loveMessage = `Di à....\n\nTừ lúc gặp em, mỗi ngày đều trở nên vui hơn.\n\nAnh nghĩ là anh không chờ được nữa rồi.\n\nHôm nay a muốn tỏ tình với em.\n\Anh muốn dành tình cảm thật lòng của anh dành cho em. \n\nEm có đồng ý cùng anh viết tiếp câu chuyện này không?`;
 
 // trạng thái tránh nút suy nghĩ
 let avoidClicks = 0;
