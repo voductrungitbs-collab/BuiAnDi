@@ -124,6 +124,45 @@ function startCelebration() {
   setTimeout(() => {
     createFirework();
   }, 650);
+  showMemoryGallery();
+}
+
+const memories = [
+  { src: 'memory1.jpg', caption: 'Lần đầu mình gặp nhau, hơi ngại nhưng mà cũng thích' },
+  { src: 'memory2.jpg', caption: 'Kỷ niệm buổi hẹn đầu tiên' },
+  { src: 'memory3.jpg', caption: 'Cùng nhau cười thật nhiều' },
+  { src: 'memory4.jpg', caption: 'Đêm đèn lấp lánh bên nhau' },
+  { src: 'memory5.jpg', caption: 'Chụp hình kỉ yếu chung nè' },
+  { src: 'memory6.jpg', caption: 'Khoảnh khắc tay trong tay' },
+  { src: 'memory7.jpg', caption: 'Lâu rồi mình vẫn nhớ' },
+  { src: 'memory8.jpg', caption: 'Ảnh mình trêu nhau dễ thương' },
+  { src: 'memory9.jpg', caption: 'Ẻm dựa vai anh nè' },
+  { src: 'memory10.jpg', caption: 'Nhìn ẻm dễ thương quá, Anh Trung bị đơ ròi' },
+  { src: 'memory11.jpg', caption: 'Hai đứa mình núp mưa nè' },
+  { src: 'memory12.jpg', caption: 'Tự nhiên muốn giữ mãi' }
+];
+
+function showMemoryGallery() {
+  const gallery = document.getElementById('memoryGallery');
+  if (!gallery) return;
+  gallery.innerHTML = '';
+  memories.forEach((memory, index) => {
+    const card = document.createElement('div');
+    card.className = 'memory-card';
+    card.style.animationDelay = `${index * 0.08}s`;
+    card.style.setProperty('--rotate', `${randomBetween(-4, 4)}deg`);
+
+    const image = document.createElement('img');
+    image.src = memory.src;
+    image.alt = memory.caption;
+
+    const caption = document.createElement('span');
+    caption.textContent = memory.caption;
+
+    card.appendChild(image);
+    card.appendChild(caption);
+    gallery.appendChild(card);
+  });
 }
 
 function moveNoButton() {
