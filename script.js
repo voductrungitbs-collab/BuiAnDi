@@ -4,8 +4,7 @@ const pageIntro = document.getElementById('pageIntro');
 const pageStory = document.getElementById('pageStory');
 const pageLetters = document.getElementById('pageLetters');
 const pageMemories = document.getElementById('pageMemories');
-
-
+const pageQuestion = document.getElementById('pageQuestion');
 const pageImageReveal = document.getElementById('pageImageReveal');
 const pageCelebrate = document.getElementById('pageCelebrate');
 const bgMusic = document.getElementById('bgMusic');
@@ -13,6 +12,8 @@ const typingText = document.getElementById('typingText');
 const continueButton = document.getElementById('continueButton');
 const nextAfterLettersButton = document.getElementById('nextAfterLettersButton');
 const nextAfterMemoriesButton = document.getElementById('nextAfterMemoriesButton');
+const hongButton = document.getElementById('hongButton');
+const daButton = document.getElementById('daButton');
 const nextToFinalButton = document.getElementById('nextToFinalButton');
 const canvas = document.getElementById('celebrateCanvas');
 const ctx = canvas.getContext('2d');
@@ -133,8 +134,13 @@ function goToMemoriesPage() {
   showMemoryGallery();
 }
 
-function goToImageReveal() {
+function goToQuestionPage() {
   pageMemories.classList.remove('active');
+  pageQuestion.classList.add('active');
+}
+
+function goToImageReveal() {
+  pageQuestion.classList.remove('active');
   pageImageReveal.classList.add('active');
 }
 
@@ -269,6 +275,13 @@ nextAfterLettersButton.addEventListener('click', () => {
 });
 
 nextAfterMemoriesButton.addEventListener('click', () => {
+  goToQuestionPage();
+});
+
+hongButton.addEventListener('mouseenter', moveHongButton);
+hongButton.addEventListener('click', moveHongButton);
+
+daButton.addEventListener('click', () => {
   goToImageReveal();
 });
 
@@ -276,8 +289,8 @@ nextToFinalButton.addEventListener('click', () => {
   startCelebration();
 });
 
-hongButton.addEventListener('mouseenter', moveHongButton);
-hondow.addEventListener('load', () => {
+window.addEventListener('resize', setCanvasSize);
+window.addEventListener('load', () => {
   setCanvasSize();
 });
 
